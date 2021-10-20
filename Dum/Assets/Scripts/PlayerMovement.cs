@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float distancePerSecond = 1.5f;
+    public float movementSpeed = 5f;
+    Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Movement horizontally
+        movement.x = Input.GetAxisRaw("Horizontal");
+        // Movement vertically
+        movement.y = Input.GetAxisRaw("Vertical");
+
+
+
+        /*
         // Amount to move in each dimension
         float dx = 0;
         float dy = 0;
@@ -38,5 +47,12 @@ public class PlayerMovement : MonoBehaviour
         }
         // Move by that amount
         rb.position += new Vector2(dx, dy);
+        */
+    }
+
+    void FixedUpdate() 
+    {
+        // Movement
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
     }
 }
