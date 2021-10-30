@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     public Camera cam;
     public float movementSpeed = 5f;
+    public bool movementCheck = false;
     Vector2 movement;
     Vector2 mousePosition;
 
@@ -34,7 +35,15 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
-
+        //movementCheck = true;
+        if(movementCheck)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
         // Direction for player to look
         Vector2 lookDirection = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 270;
