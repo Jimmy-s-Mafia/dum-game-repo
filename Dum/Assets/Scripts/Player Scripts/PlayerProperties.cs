@@ -8,6 +8,7 @@ public class PlayerProperties : MonoBehaviour
     public int currentHealth;
     
     public HealthBar healthBar;
+    public Animator animator;
 
     void Start()
     {
