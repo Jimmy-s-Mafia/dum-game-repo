@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
-        //movementCheck = true;
+        movementCheck = true;
         if(movementCheck)
         {
             animator.SetBool("IsMoving", true);
