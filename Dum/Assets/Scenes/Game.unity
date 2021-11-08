@@ -7329,7 +7329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 519420031}
-  movementSpeed: 0
+  movementSpeed: 5
   movementCheck: 0
 --- !u!114 &1827562789
 MonoBehaviour:
