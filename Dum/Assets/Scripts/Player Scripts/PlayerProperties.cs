@@ -28,5 +28,10 @@ public class PlayerProperties : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
