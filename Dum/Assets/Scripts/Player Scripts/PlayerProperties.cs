@@ -29,7 +29,7 @@ public class PlayerProperties : MonoBehaviour
         if (e.CompareTag("Enemy"))
         {
             // Get enemy's int value to do damage to player
-            int damageValue = e.GetComponent<int>();
+            int damageValue = Zombie.enemyDamage;
             TakeDamage(damageValue);
         }
         

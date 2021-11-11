@@ -7,7 +7,7 @@ public class Zombie : MonoBehaviour
     Rigidbody2D rb;                  // This object's Rigidbody
     float distancePerSecond = 1f;
     bool chasePlayer = false;
-    public int damageValue = 10;
+    public static int enemyDamage = 10;
     public int maxHealth = 50;
     public int currentHealth;
 
@@ -67,7 +67,7 @@ public class Zombie : MonoBehaviour
         if (gameObject.CompareTag("Pleyer Bullet"))
         {
             // Get bullet's damage
-            int damageValue = gameObject.GetComponent<int>();
+            int damageValue = BulletProperties.damageValue;
             TakeDamage(damageValue);
         }
     }
