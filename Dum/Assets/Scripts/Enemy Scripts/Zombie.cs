@@ -8,9 +8,12 @@ public class Zombie : MonoBehaviour
     float distancePerSecond = 1f;
     bool chasePlayer = false;
     public int damageValue = 10;
+    public int maxHealth = 50;
+    public int currentHealth;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -55,12 +58,18 @@ public class Zombie : MonoBehaviour
     // Damage player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject p = collision.gameObject;
-        if (p.CompareTag("Player"))
+        GameObject gameObject = collision.gameObject;
+        if (gameObject.CompareTag("Player"))
         {
             chasePlayer = false;
         }
         
+        if (gameObject.CompareTag("Pleyer Bullet"))
+        {
+            // Get bullet's damage
+            int damageValue = gameObject.GetComponent<int>();
+            TakeDamage(damageValue);
+        }
     }
 
     void TakeDamage(int damage)
