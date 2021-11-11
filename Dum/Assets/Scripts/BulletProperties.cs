@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletProperties : MonoBehaviour
 {
+    public int damageValue = 10;
 
     void OnCollisionEnter2D(Collision2D collision)
     {

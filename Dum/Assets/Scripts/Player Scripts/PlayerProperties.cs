@@ -16,12 +16,23 @@ public class PlayerProperties : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void Update()
+    /* void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
         }
+    }*/
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject e = collision.gameObject;
+        if (e.CompareTag("Enemy"))
+        {
+            // Get enemy's int value to do damage to player
+            int damageValue = e.GetComponent<int>();
+            TakeDamage(damageValue);
+        }
+        
     }
 
     void TakeDamage(int damage)
