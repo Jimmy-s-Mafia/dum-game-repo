@@ -59,12 +59,12 @@ public class Zombie : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObject = collision.gameObject;
-        if (gameObject.CompareTag("Player"))
+        /*if (gameObject.CompareTag("Player"))
         {
             chasePlayer = false;
-        }
+        }*/
         
-        if (gameObject.CompareTag("Pleyer Bullet"))
+        if (gameObject.CompareTag("Player Bullet"))
         {
             // Get bullet's damage
             int damageValue = BulletProperties.damageValue;
