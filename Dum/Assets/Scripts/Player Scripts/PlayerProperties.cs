@@ -6,6 +6,7 @@ public class PlayerProperties : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    private bool collisionCheck;
     
     public HealthBar healthBar;
     public Animator animator;
@@ -18,21 +19,24 @@ public class PlayerProperties : MonoBehaviour
 
     /* void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+        
     }*/
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;
         if (e.CompareTag("Enemy"))
         {
-            // Get enemy's int value to do damage to player
-            int damageValue = Zombie.enemyDamage;
-            TakeDamage(damageValue);
+            collisionCheck = true;
+            while (collisionCheck)
+            {
+                // Get enemy's int value to do damage to player
+                int damageValue = Zombie.enemyDamage;
+                TakeDamage(damageValue);
+                // Wait 2 seconds before damaging player again if still in range
+                StartCoroutine(Timer());
+                collisionCheck = false;
+            }
         }
-        
     }
 
     void TakeDamage(int damage)
@@ -40,9 +44,14 @@ public class PlayerProperties : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth == 0)
+        if(currentHealth <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(2f);
     }
 }

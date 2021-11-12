@@ -9,5 +9,6 @@ public class SpawnZombies : MonoBehaviour
     void Start()
     {
         Instantiate(ZombiePrefab, new Vector2(-5, -5), Quaternion.identity);
+        Instantiate(ZombiePrefab, new Vector2(-5, 5), Quaternion.identity);
     }
 }
