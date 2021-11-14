@@ -27,8 +27,7 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         // Fire bullet
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-	
-	//Create sound
+
 	GameObject gunshot = Instantiate(gunshotPrefab, firePoint.position, firePoint.rotation);
     }
 }
