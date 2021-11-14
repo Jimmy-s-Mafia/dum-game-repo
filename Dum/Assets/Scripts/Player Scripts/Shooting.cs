@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public GameObject gunShotPrefab;
+    public GameObject gunshotPrefab
 
     public float bulletForce = 20f;
 
@@ -29,6 +29,6 @@ public class Shooting : MonoBehaviour
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
 	
 	//Create sound
-	GameObject gunShot = Instantiate(gunShotPrefab, firePoint.position, firePoint.rotation);
+	GameObject gunshot = Instantiate(gunshotPrefab, firePoint.position, firePoint.rotation);
     }
 }
