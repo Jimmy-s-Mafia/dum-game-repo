@@ -8,4 +8,9 @@ public class Silence : MonoBehaviour
 	{
 		Destroy(gameObject, 5);
 	}
+
+	void Start()
+	{
+		DestroyObjectDelayed();
+	}
 }

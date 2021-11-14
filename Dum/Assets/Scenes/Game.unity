@@ -7549,7 +7549,7 @@ Transform:
   - {fileID: 264355567}
   - {fileID: 1227666533}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543221427
 GameObject:
@@ -7980,7 +7980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827562783
 GameObject:
@@ -8147,6 +8147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1899899200}
   bulletPrefab: {fileID: 4667591514582585582, guid: 261c32cef4561cd4ab9d1fc0a7e9aaba, type: 3}
+  gunshotPrefab: {fileID: 2170132105204066864, guid: 47369e62d93453742a0e224fc43d34bf, type: 3}
   bulletForce: 20
 --- !u!114 &1827562790
 MonoBehaviour:
