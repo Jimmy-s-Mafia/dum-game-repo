@@ -13619,7 +13619,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1827562786
 Transform:
   m_ObjectHideFlags: 0
@@ -13715,6 +13715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1899899200}
   bulletPrefab: {fileID: 4667591514582585582, guid: 261c32cef4561cd4ab9d1fc0a7e9aaba, type: 3}
+  gunshotPrefab: {fileID: 2170132105204066864, guid: 47369e62d93453742a0e224fc43d34bf, type: 3}
   bulletForce: 20
 --- !u!114 &1827562790
 MonoBehaviour:
