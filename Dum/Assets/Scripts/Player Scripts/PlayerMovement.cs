@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     public Camera cam;
-    public float movementSpeed = 5f;
+    public float movementSpeed = 10f;
     public bool movementCheck = false;
     Vector2 movement;
     Vector2 mousePosition;
