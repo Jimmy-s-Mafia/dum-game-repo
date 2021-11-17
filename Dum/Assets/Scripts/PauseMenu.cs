@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public GameObject gameOverMenu;
+    public GameObject victoryMenu;
+    
+    public PlayerProperties player;
+
     public static bool GameIsPaused = false;
 
     // Update is called once per frame
@@ -22,6 +27,12 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        // when player dies, load game over screen
+        if (player.currentHealth <= 0)
+        {
+            gameOverMenu.SetActive(true);
         }
     }
 
