@@ -15,6 +15,7 @@ public class BossBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -33,5 +34,31 @@ public class BossBehavior : MonoBehaviour
         Vector2 lookDirection = playerPosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 270;
         rb.rotation = angle;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject gameObject = collision.gameObject;
+        if (gameObject.CompareTag("Player Bullet"))
+        {
+            rb.velocity = Vector2.zero;
+            //rb.angularVelocity = Vector2.zero;
+
+
+            // Get bullet's damage
+            int damageValue = BulletProperties.damageValue;
+            TakeDamage(damageValue);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
