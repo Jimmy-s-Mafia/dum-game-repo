@@ -5,7 +5,7 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     Rigidbody2D rb;                  // This object's Rigidbody
-    float distancePerSecond = 1f;
+    float distancePerSecond = 2f;
     bool chasePlayer = false;
     public static int enemyDamage = 10;
     public int maxHealth = 50;
@@ -30,6 +30,8 @@ public class Zombie : MonoBehaviour
             Vector2 delta = prb.position - rb.position;
             delta.Normalize();
             rb.position += delta * distancePerSecond * Time.deltaTime;
+            float angle = Mathf.Atan2(delta.x,delta.y) * Mathf.Rad2Deg;
+            rb.rotation = -1*angle+90;
         }
     }
 
@@ -88,3 +90,4 @@ public class Zombie : MonoBehaviour
         }
     }
 }
+
