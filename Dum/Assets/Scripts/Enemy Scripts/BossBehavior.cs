@@ -32,7 +32,7 @@ public class BossBehavior : MonoBehaviour
     {   
         // Direction for boss to look
         Vector2 lookDirection = playerPosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 270;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
         rb.rotation = angle;
     }
 
