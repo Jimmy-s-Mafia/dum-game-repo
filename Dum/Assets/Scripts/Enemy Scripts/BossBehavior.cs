@@ -39,7 +39,7 @@ public class BossBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObject = collision.gameObject;
-        if (gameObject.CompareTag("Player Bullet"))
+        if (gameObject.CompareTag("Bullet"))
         {
             rb.velocity = Vector2.zero;
             //rb.angularVelocity = Vector2.zero;

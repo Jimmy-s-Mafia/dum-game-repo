@@ -40,7 +40,7 @@ public class BossShooting : MonoBehaviour
         rb2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
 
         canShoot = false;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f);
         canShoot = true;
     }
 }
