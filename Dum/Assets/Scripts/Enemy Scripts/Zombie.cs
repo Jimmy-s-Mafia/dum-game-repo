@@ -65,7 +65,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    // Damage player
+    // Take damage from player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObject = collision.gameObject;

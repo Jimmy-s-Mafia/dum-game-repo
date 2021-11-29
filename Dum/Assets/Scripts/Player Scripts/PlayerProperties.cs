@@ -40,6 +40,12 @@ public class PlayerProperties : MonoBehaviour
                 collisionCheck = false;
             }
         }
+        else if (e.CompareTag("Bullet"))
+        {
+            // Get bullet's damage
+            int damageValue = BulletProperties.damageValue;
+            TakeDamage(damageValue);
+        }
     }
 
     void TakeDamage(int damage)
