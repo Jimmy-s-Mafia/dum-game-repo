@@ -33923,7 +33923,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1827562786
 Transform:
   m_ObjectHideFlags: 0
@@ -34019,6 +34019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1899899200}
   bulletPrefab: {fileID: 4667591514582585582, guid: 261c32cef4561cd4ab9d1fc0a7e9aaba, type: 3}
+  gunShotPrefab: {fileID: 7453710831422787412, guid: 93ce5650c8b79774cb75e6c3221f435c, type: 3}
   bulletForce: 20
 --- !u!114 &1827562790
 MonoBehaviour:
@@ -34036,6 +34037,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1493888639}
   animator: {fileID: 1827562791}
+  player: {fileID: 1827562786}
+  hurtPrefab: {fileID: 4310344769698854975, guid: d17100418e631884495c096e1afa9591, type: 3}
 --- !u!95 &1827562791
 Animator:
   serializedVersion: 3
