@@ -11,6 +11,9 @@ public class PlayerProperties : MonoBehaviour
     public HealthBar healthBar;
     public Animator animator;
 
+    public Transform player;
+    public GameObject hurtPrefab;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -41,6 +44,9 @@ public class PlayerProperties : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+	// Hurt Sound
+	GameObject hurt = Instantiate(hurtPrefab, player.position, player.rotation);
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 

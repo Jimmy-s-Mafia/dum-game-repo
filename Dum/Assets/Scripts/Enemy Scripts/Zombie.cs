@@ -12,6 +12,9 @@ public class Zombie : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public GameObject hurtPrefab;
+    public GameObject trackingSoundPrefab;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
@@ -38,12 +41,16 @@ public class Zombie : MonoBehaviour
     // Trigger movement
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         // Check if object collided with is player
         GameObject p = collision.gameObject;
         if (p.CompareTag("Player"))
         {
             // Start moving toward player
             chasePlayer = true;
+
+	    // Tracking player sound
+	    GameObject trackingSound = Instantiate(trackingSoundPrefab);
         }
     }
 
@@ -81,6 +88,9 @@ public class Zombie : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+	// Hurt sound
+	GameObject zombieHurt = Instantiate(hurtPrefab);
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
