@@ -74,7 +74,7 @@ public class Zombie : MonoBehaviour
             chasePlayer = false;
         }*/
         
-        if (gameObject.CompareTag("Player Bullet"))
+        if (gameObject.CompareTag("Bullet"))
         {
             rb.velocity = Vector2.zero;
             //rb.angularVelocity = Vector2.zero;
