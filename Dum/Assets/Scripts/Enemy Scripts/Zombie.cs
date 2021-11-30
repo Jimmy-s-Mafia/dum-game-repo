@@ -41,7 +41,6 @@ public class Zombie : MonoBehaviour
     // Trigger movement
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         // Check if object collided with is player
         GameObject p = collision.gameObject;
         if (p.CompareTag("Player"))
@@ -97,6 +96,8 @@ public class Zombie : MonoBehaviour
         if(currentHealth <= 0)
         {
             Destroy(gameObject);
+            KillCounter.killCount++;
+            //Debug.Log(KillCounter.killCount);
         }
     }
 }
