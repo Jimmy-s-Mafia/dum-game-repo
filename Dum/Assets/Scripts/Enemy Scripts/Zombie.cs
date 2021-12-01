@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    public GameObject explosion;
+
     Rigidbody2D rb;                  // This object's Rigidbody
     float distancePerSecond = 2f;
     bool chasePlayer = false;
@@ -95,6 +97,11 @@ public class Zombie : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            // Instantiate explosion at the zombie location
+            GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
+            // Destroy explosion after short time
+            Destroy(e, 0.50f);
+
             Destroy(gameObject);
             KillCounter.killCount++;
             Debug.Log(KillCounter.killCount);
