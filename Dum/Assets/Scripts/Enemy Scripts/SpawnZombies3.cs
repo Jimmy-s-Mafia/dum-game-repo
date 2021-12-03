@@ -13,6 +13,7 @@ public class SpawnZombies3 : MonoBehaviour
         GameObject p = collision.gameObject;
         if (p.CompareTag("Player")&&canSpawn)
         {
+            KillCounter.killCount = 0;
             Instantiate(ZombiePrefab, new Vector2(-5, -14), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(6, -14), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(-5, -25), Quaternion.identity);
