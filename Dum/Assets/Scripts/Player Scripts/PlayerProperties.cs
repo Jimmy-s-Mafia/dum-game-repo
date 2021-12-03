@@ -20,10 +20,10 @@ public class PlayerProperties : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    /* void Update()
+    void Update()
     {
-        
-    }*/
+        healthBar.SetHealth(currentHealth);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;
