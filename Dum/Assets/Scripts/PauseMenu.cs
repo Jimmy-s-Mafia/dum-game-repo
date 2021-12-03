@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject victoryMenu;
     
-    public PlayerProperties player;
+    //public PlayerProperties player;
 
     public static bool GameIsPaused = false;
 
@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         // when player dies, load game over screen
-        if (player.currentHealth <= 0)
+        if (PlayerProperties.currentHealth <= 0)
         {
             gameOverMenu.SetActive(true);
         }
