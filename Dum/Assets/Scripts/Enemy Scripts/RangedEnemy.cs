@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossBehavior : MonoBehaviour
+public class RangedEnemy : MonoBehaviour
 {
     Rigidbody2D rb;
     GameObject player;
     Vector2 playerPosition;
-    public int maxHealth = 150;
+    public int maxHealth = 50;
     public int currentHealth;
-    public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +34,7 @@ public class BossBehavior : MonoBehaviour
         rb.rotation = angle;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObject = collision.gameObject;
         if (gameObject.CompareTag("Bullet"))
@@ -53,7 +52,6 @@ public class BossBehavior : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
         {
