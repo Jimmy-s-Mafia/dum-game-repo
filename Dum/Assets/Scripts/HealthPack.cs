@@ -17,7 +17,6 @@ public class HealthPack : MonoBehaviour
             {
                 PlayerProperties.currentHealth += 50;
                 canHeal = false;
-                Debug.Log(PlayerProperties.currentHealth);
                 Destroy(gameObject);
             }
             // restore the difference if greater than 50
@@ -26,7 +25,6 @@ public class HealthPack : MonoBehaviour
             {
                 PlayerProperties.currentHealth = 100;
                 canHeal = false;
-                Debug.Log(PlayerProperties.currentHealth);
                 Destroy(gameObject);
             }
         }
