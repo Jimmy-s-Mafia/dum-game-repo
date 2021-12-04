@@ -104,7 +104,6 @@ public class Zombie : MonoBehaviour
 
             Destroy(gameObject);
             KillCounter.killCount++;
-            Debug.Log(KillCounter.killCount);
         }
     }
 }

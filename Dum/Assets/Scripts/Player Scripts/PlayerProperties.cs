@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerProperties : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
     private bool collisionCheck;
     
     public HealthBar healthBar;
@@ -20,10 +20,10 @@ public class PlayerProperties : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    /* void Update()
+    void Update()
     {
-        
-    }*/
+        healthBar.SetHealth(currentHealth);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject e = collision.gameObject;

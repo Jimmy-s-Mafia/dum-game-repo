@@ -8,7 +8,10 @@ public class BulletProperties : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        GameObject c = collision.gameObject;
+        if (!c.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
     }
-
 }

@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossBehavior : MonoBehaviour
+public class RangedEnemy : MonoBehaviour
 {
-    public GameObject explosion;
-
     Rigidbody2D rb;
     GameObject player;
     Vector2 playerPosition;
-    public int maxHealth = 150;
+    public int maxHealth = 50;
     public int currentHealth;
-    public HealthBar healthBar;
-    private bool playerInRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,28 +26,15 @@ public class BossBehavior : MonoBehaviour
         playerPosition = player.transform.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject p = collision.gameObject;
-        if (p.CompareTag("Player"))
-        {
-            playerInRange = true;
-            BossShooting.canShoot = true;
-        }
-    }
-
     void FixedUpdate() 
     {   
-        if (playerInRange)
-        {
-            // Direction for boss to look
-            Vector2 lookDirection = playerPosition - rb.position;
-            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
-            rb.rotation = angle;
-        }
+        // Direction for boss to look
+        Vector2 lookDirection = playerPosition - rb.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
+        rb.rotation = angle;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject gameObject = collision.gameObject;
         if (gameObject.CompareTag("Bullet"))
@@ -69,17 +52,10 @@ public class BossBehavior : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
         {
-            // Instantiate explosion at the boss location
-            GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
-            // Destroy explosion after short time
-            Destroy(e, 0.50f);
-
             Destroy(gameObject);
-            isDead = true;
         }
     }
 }

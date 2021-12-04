@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public bool movementCheck = false;
     Vector2 movement;
     Vector2 mousePosition;
+    private bool canDash = true;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Find current mouse position
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // Dash
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        {
+            StartCoroutine(Countdown());
+        }
     }
 
     void FixedUpdate() 
@@ -48,5 +55,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDirection = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 270;
         rb.rotation = angle;
+    }
+
+    IEnumerator Countdown()
+    {
+        canDash = false;
+        movementSpeed = 12f;
+        yield return new WaitForSeconds(0.5f);
+        movementSpeed = 10f;
+        canDash = true;
     }
 }
