@@ -480,7 +480,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 35507cf53a9af453f94ce0b0ec27ebfa, type: 3}
-    m_FontSize: 250
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -27557,7 +27557,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 35507cf53a9af453f94ce0b0ec27ebfa, type: 3}
-    m_FontSize: 250
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
