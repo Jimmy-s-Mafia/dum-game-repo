@@ -27336,6 +27336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4436183128954449213, guid: 2ed32fa5589cf1a4f9218061c3ce2cb4, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1380516225499167190, guid: 16f560aa4d5a10f4fbe845a74eafb30c, type: 3}
     - target: {fileID: 4436183128954449214, guid: 2ed32fa5589cf1a4f9218061c3ce2cb4, type: 3}
       propertyPath: m_RootOrder
       value: 1

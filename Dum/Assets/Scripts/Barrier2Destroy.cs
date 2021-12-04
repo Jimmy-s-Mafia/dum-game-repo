@@ -15,7 +15,7 @@ public class Barrier2Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BossBehavior.isDead)
+       /* if (BossBehavior.isDead)
         {
 
             // Instantiate explosion at the barrier location
@@ -26,5 +26,6 @@ public class Barrier2Destroy : MonoBehaviour
 
             Destroy(this.gameObject);       
         }
+	*/
     }
 }

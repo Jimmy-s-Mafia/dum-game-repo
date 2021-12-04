@@ -13,6 +13,7 @@ public class BossBehavior : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     private bool playerInRange;
+    public bool isDead;
     // Start is called before the first frame update
     void Start()
     {
