@@ -10,6 +10,7 @@ public class BossBehavior : MonoBehaviour
     public int maxHealth = 150;
     public int currentHealth;
     public HealthBar healthBar;
+    private bool playerInRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +28,25 @@ public class BossBehavior : MonoBehaviour
         playerPosition = player.transform.position;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject p = collision.gameObject;
+        if (p.CompareTag("Player"))
+        {
+            playerInRange = true;
+            BossShooting.canShoot = true;
+        }
+    }
+
     void FixedUpdate() 
     {   
-        // Direction for boss to look
-        Vector2 lookDirection = playerPosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
-        rb.rotation = angle;
+        if (playerInRange)
+        {
+            // Direction for boss to look
+            Vector2 lookDirection = playerPosition - rb.position;
+            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
+            rb.rotation = angle;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

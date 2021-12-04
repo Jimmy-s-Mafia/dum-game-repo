@@ -11,7 +11,7 @@ public class BossShooting : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float bulletForce = 5f;
-    private bool canShoot = true;
+    public static bool canShoot = false;
     // Start is called before the first frame update
     void Start()
     {
