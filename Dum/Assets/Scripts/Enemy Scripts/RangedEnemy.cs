@@ -9,6 +9,9 @@ public class RangedEnemy : MonoBehaviour
     Vector2 playerPosition;
     public int maxHealth = 50;
     public int currentHealth;
+
+    public GameObject hurtPrefab;
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class RangedEnemy : MonoBehaviour
     {   
         // Direction for boss to look
         Vector2 lookDirection = playerPosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 270;
         rb.rotation = angle;
     }
 
@@ -51,11 +54,20 @@ private void OnCollisionEnter2D(Collision2D collision)
 
     void TakeDamage(int damage)
     {
+        // Hurt sound
+	    GameObject zombieHurt = Instantiate(hurtPrefab);
+
         currentHealth -= damage;
 
         if(currentHealth <= 0)
         {
+            // Instantiate explosion at the zombie location
+            GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
+            // Destroy explosion after short time
+            Destroy(e, 0.50f);
+
             Destroy(gameObject);
+            KillCounter.killCount++;
         }
     }
 }

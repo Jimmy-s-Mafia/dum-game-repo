@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnZombies4 : MonoBehaviour
 {
     public GameObject ZombiePrefab;
+    public GameObject RangedEnemyPrefab;
     private bool canSpawn = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,10 +16,12 @@ public class SpawnZombies4 : MonoBehaviour
         {
             KillCounter.killCount = 0;
             Instantiate(ZombiePrefab, new Vector2(-6, -36), Quaternion.identity);
-            Instantiate(ZombiePrefab, new Vector2(7, -42), Quaternion.identity);
-            Instantiate(ZombiePrefab, new Vector2(-5, -48), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(-5, -45), Quaternion.identity);
-            Instantiate(ZombiePrefab, new Vector2(5, -45), Quaternion.identity);
+            Instantiate(ZombiePrefab, new Vector2(5, -38), Quaternion.identity);
+            //Instantiate(ZombiePrefab, new Vector2(-5, -45), Quaternion.identity);
+            //Instantiate(ZombiePrefab, new Vector2(5, -45), Quaternion.identity);
+            Instantiate(RangedEnemyPrefab, new Vector2(7, -42), Quaternion.identity);
+            Instantiate(RangedEnemyPrefab, new Vector2(-5, -48), Quaternion.identity);
             canSpawn = false;
         }
     }
