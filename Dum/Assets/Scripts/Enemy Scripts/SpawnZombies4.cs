@@ -17,6 +17,7 @@ public class SpawnZombies4 : MonoBehaviour
             Instantiate(ZombiePrefab, new Vector2(-6, -36), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(7, -42), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(-5, -48), Quaternion.identity);
+            Instantiate(ZombiePrefab, new Vector2(-5, -45), Quaternion.identity);
             Instantiate(ZombiePrefab, new Vector2(5, -45), Quaternion.identity);
             canSpawn = false;
         }
