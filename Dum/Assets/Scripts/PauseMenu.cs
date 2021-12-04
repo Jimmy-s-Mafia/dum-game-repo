@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject gameOverMenu;
     public GameObject victoryMenu;
+    public BossBehavior boss;
     
     //public PlayerProperties player;
 
@@ -33,6 +34,12 @@ public class PauseMenu : MonoBehaviour
         if (PlayerProperties.currentHealth <= 0)
         {
             gameOverMenu.SetActive(true);
+        }
+
+        // when boss dies, display victory screen
+        if (boss.currentHealth <= 0)
+        {
+            victoryMenu.SetActive(true);
         }
     }
 

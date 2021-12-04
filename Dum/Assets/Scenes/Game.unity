@@ -22609,6 +22609,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1077242147}
   gameOverMenu: {fileID: 281344300}
   victoryMenu: {fileID: 2083406027}
+  boss: {fileID: 1924045907}
 --- !u!1 &1227666532
 GameObject:
   m_ObjectHideFlags: 0
@@ -28569,6 +28570,17 @@ Transform:
   m_Father: {fileID: 1827562786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.99}
+--- !u!114 &1924045907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4436183128954449213, guid: 2ed32fa5589cf1a4f9218061c3ce2cb4, type: 3}
+  m_PrefabInstance: {fileID: 1339420522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11188a1bf14373e4baca2b22ea72e656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943103243
 GameObject:
   m_ObjectHideFlags: 0
