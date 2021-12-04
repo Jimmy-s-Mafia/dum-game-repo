@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {
+    public GameObject explosion;
+
     Rigidbody2D rb;
     GameObject player;
     Vector2 playerPosition;
@@ -11,6 +13,8 @@ public class BossBehavior : MonoBehaviour
     public int maxHealth = 150;
     public int currentHealth;
     public HealthBar healthBar;
+
+    public static bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +62,13 @@ public class BossBehavior : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            // Instantiate explosion at the boss location
+            GameObject e = Instantiate(explosion, transform.position, Quaternion.identity);
+            // Destroy explosion after short time
+            Destroy(e, 0.50f);
+
             Destroy(gameObject);
+            isDead = true;
         }
     }
 }

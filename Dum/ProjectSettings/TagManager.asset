@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Player Bullet
   - Bullet
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 3869101649
+    locked: 0
+  - name: Explosion
+    uniqueID: 905364983
     locked: 0
   - name: Player
     uniqueID: 1739934051
