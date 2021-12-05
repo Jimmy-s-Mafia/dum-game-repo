@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -10,14 +11,17 @@ public class BossBehavior : MonoBehaviour
     Rigidbody2D rb;
     GameObject player;
     Vector2 playerPosition;
+    
     public int maxHealth = 2000;
     public int currentHealth;
-    // public HealthBar healthBar;
 
     public Slider bossHealthBar;
+    public GameObject displayBossBar;
+    public GameObject bossLabel;
 
     private bool playerInRange;
     public bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,8 @@ public class BossBehavior : MonoBehaviour
         if (p.CompareTag("Player"))
         {
             playerInRange = true;
+            bossLabel.SetActive(true);
+            displayBossBar.SetActive(true);
             BossShooting.canShoot = true;
         }
     }
@@ -87,6 +93,8 @@ public class BossBehavior : MonoBehaviour
             Destroy(e, 0.50f);
 
             Destroy(gameObject);
+            bossLabel.SetActive(false);
+            displayBossBar.SetActive(false);
             isDead = true;
         }
     }

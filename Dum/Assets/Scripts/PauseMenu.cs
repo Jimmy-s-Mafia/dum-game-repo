@@ -6,21 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
-    public GameObject gameOverMenu;
-    public GameObject victoryMenu;
+    public GameObject pauseMenuUI, gameOverMenu, victoryMenu, killCount, staminaBar, healthBar;
     public BossBehavior boss;
     
     //public PlayerProperties player;
 
     public static bool GameIsPaused = false;
     public bool playerWon = false;
+    public bool playerLost = false;
+
+    void Start()
+    {
+        killCount.SetActive(true);
+        healthBar.SetActive(true);
+        staminaBar.SetActive(true);
+    }
 
     // Update is called once per frame
     void Update()
     {
         // when esc key is pressed, toggle pause/resume
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !playerWon && !playerLost)
         {
             if (GameIsPaused)
             {
@@ -35,6 +41,11 @@ public class PauseMenu : MonoBehaviour
         if (PlayerProperties.currentHealth <= 0 && !playerWon)
         {
             gameOverMenu.SetActive(true);
+            playerLost = true;
+
+            killCount.SetActive(false);
+            healthBar.SetActive(false);
+            staminaBar.SetActive(false);
         }
 
         // when boss dies, display victory screen
@@ -42,6 +53,10 @@ public class PauseMenu : MonoBehaviour
         {
             victoryMenu.SetActive(true);
             playerWon = true;
+
+            killCount.SetActive(false);
+            healthBar.SetActive(false);
+            staminaBar.SetActive(false);
         }
     }
 
@@ -50,6 +65,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        killCount.SetActive(true);
+        healthBar.SetActive(true);
+        staminaBar.SetActive(true);
     }
 
     void Pause()
@@ -57,17 +76,17 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        killCount.SetActive(false);
+        healthBar.SetActive(false);
+        staminaBar.SetActive(false);
     }
 
     public void LoadMenu() {
-        Time.timeScale = 1f;
-        GameIsPaused = false;
         SceneManager.LoadScene("Menu");
     }
 
     public void RestartGame() {
-        Time.timeScale = 1f;
-        GameIsPaused = false;
         SceneManager.LoadScene("Game");
     }
 
