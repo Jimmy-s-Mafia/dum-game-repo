@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         killCount.SetActive(true);
         healthBar.SetActive(true);
         staminaBar.SetActive(true);
@@ -83,10 +84,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMenu() {
+        GameIsPaused = false;
         SceneManager.LoadScene("Menu");
     }
 
     public void RestartGame() {
+        GameIsPaused = false;
         SceneManager.LoadScene("Game");
     }
 
