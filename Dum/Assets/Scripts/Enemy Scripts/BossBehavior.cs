@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class BossBehavior : MonoBehaviour
     Rigidbody2D rb;
     GameObject player;
     Vector2 playerPosition;
-    public int maxHealth = 150;
+    public int maxHealth = 2000;
     public int currentHealth;
-    public HealthBar healthBar;
+    // public HealthBar healthBar;
+
+    public Slider bossHealthBar;
+
     private bool playerInRange;
     public bool isDead;
     // Start is called before the first frame update
@@ -19,6 +23,7 @@ public class BossBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        bossHealthBar.value = maxHealth;
     }
 
     // Update is called once per frame
@@ -70,8 +75,10 @@ public class BossBehavior : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        // healthBar.SetHealth(currentHealth);
 
+        bossHealthBar.value = currentHealth;
+        
         if(currentHealth <= 0)
         {
             // Instantiate explosion at the boss location

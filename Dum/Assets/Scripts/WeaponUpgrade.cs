@@ -11,7 +11,7 @@ public class WeaponUpgrade : MonoBehaviour
         GameObject player = collision.gameObject;
         if (player.CompareTag("Player") && canPickup)
         {
-            BulletProperties.damageValue += 10;
+            BulletProperties.damageValue += 5;
             canPickup = false;
             Destroy(gameObject);
         }
