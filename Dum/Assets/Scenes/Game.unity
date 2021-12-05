@@ -27470,6 +27470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZombiePrefab: {fileID: 8627797889233270696, guid: 17db9a7fce64331419cd3ea0159a5f55, type: 3}
+  RangedEnemyPrefab: {fileID: 545756517751849640, guid: a80f0a2913f74ca4caefa0cf86846b27, type: 3}
 --- !u!1001 &1339420522
 PrefabInstance:
   m_ObjectHideFlags: 0
