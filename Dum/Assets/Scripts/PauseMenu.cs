@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     //public PlayerProperties player;
 
     public static bool GameIsPaused = false;
+    public bool playerWon = false;
 
     // Update is called once per frame
     void Update()
@@ -31,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         // when player dies, load game over screen
-        if (PlayerProperties.currentHealth <= 0)
+        if (PlayerProperties.currentHealth <= 0 && !playerWon)
         {
             gameOverMenu.SetActive(true);
         }
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         if (boss.currentHealth <= 0)
         {
             victoryMenu.SetActive(true);
+            playerWon = true;
         }
     }
 
